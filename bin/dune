@@ -1,0 +1,14 @@
+(executable
+ (name main)
+ (public_name AoC2k25)
+ (libraries base util core))
+
+(executable
+ (name day01)
+ (public_name day01)
+ (libraries base util core))
+
+(executable
+ (name day02)
+ (public_name day02)
+ (libraries base util core))
