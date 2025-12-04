@@ -12,3 +12,8 @@
  (name day02)
  (public_name day02)
  (libraries base util core))
+
+(executable
+ (name day03)
+ (public_name day03)
+ (libraries base util core))

@@ -17,5 +17,4 @@
  (name AoC2k25)
  (synopsis "Advent of Code 2025 writen in Ocaml")
  (description "Learning Ocaml while doing advent of code")
- (depends ocaml)
-
+ (depends ocaml))
