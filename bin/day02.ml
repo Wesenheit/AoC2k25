@@ -1,15 +1,6 @@
 open Base
 open Core
-
-let parse_ranges (filename : string) : (int * int) list =
-  filename
-  |> Stdio.In_channel.read_all
-  |> String.rstrip
-  |> String.split ~on:','
-  |> List.map ~f:(fun s ->
-         match String.split ~on:'-' s with
-         | [ a; b ] -> (int_of_string a, int_of_string b)
-         | _ -> failwith "Expected exactly two parts")
+open Util
 
 let find_if_duplicate (id : string) : bool =
   let n = String.length id in
@@ -51,7 +42,11 @@ let sum_duplicate (id : int) : int =
   if find_if_duplicate (string_of_int id) then id else 0
 
 let () =
-  let parsed_ranges = parse_ranges "data/day2.txt" in
+  let parsed_ranges =
+    read_file "data/day2.txt"
+    |> String.split_on_chars ~on:[ ',' ]
+    |> parse_ranges
+  in
   let all_values =
     parsed_ranges |> List.concat_map ~f:(fun (a, b) -> List.range a (b + 1))
   in
